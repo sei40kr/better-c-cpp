@@ -8,8 +8,14 @@
 ;;
 ;;; License: MIT
 
-(setq better-c-cpp-packages '(c-eldoc))
+(setq better-c-cpp-packages
+  '(
+     c-eldoc
+     flycheck-google-cpplint))
 
 (defun better-c-cpp/init-c-eldoc ()
   (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
   (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode))
+
+(defun better-c-cpp/pre-init-flycheck-google-cpplint ()
+  (custom-set-variables '(flycheck-googlelint-filter "-legal/copyright")))
